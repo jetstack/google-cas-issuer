@@ -43,5 +43,7 @@ A Helm chart for jetstack/google-cas-issuer
 | replicaCount | int | `1` | Number of replicas of google-cas-issuer to run. |
 | resources | object | `{}` | Kubernetes pod resource requests/limits for google-cas-issuer. |
 | serviceAccount.annotations | object | `{}` | Optional annotations to add to the service account |
+| serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
+| serviceAccount.name | string | `""` | The name used to create the service account or the name of an existing service account to use if not creating one. if create is false, this name is required or the default service account will be used. |
 | tolerations | list | `[]` | Kubernetes pod tolerations for google-cas-issuer |
 
