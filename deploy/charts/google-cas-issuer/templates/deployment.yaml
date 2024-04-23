@@ -49,6 +49,10 @@ spec:
         resources:
           {{- toYaml . | nindent 10 }}
         {{- end }}
+        {{- with .Values.containerSecurityContext }}
+        securityContext:
+          {{- toYaml . | nindent 10 }}
+        {{- end }}
 
       {{- with .Values.nodeSelector }}
       nodeSelector:
@@ -56,6 +60,10 @@ spec:
       {{- end }}
       {{- with .Values.affinity }}
       affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.securityContext }}
+      securityContext:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       {{- with .Values.tolerations }}
